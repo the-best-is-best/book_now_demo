@@ -33,7 +33,7 @@ Widget selectProjectTab() {
           Center(
               child: Text(
             "Select Project",
-            style: Theme.of(context).textTheme.headline1,
+            style: TBIBFontStyle.h3,
           )),
           const SizedBox(
             height: 5,
@@ -57,14 +57,15 @@ Widget selectProjectTab() {
                               child: ElevatedButton(
                                 child: Text(
                                   cubitProject.myProject[index].projectName,
-                                  style: TBIBFontStyle.h4,
+                                  style: TBIBFontStyle.h4
+                                      .copyWith(color: Colors.white),
                                 ),
                                 onPressed: () async {
                                   // Navigator.pushReplacement(
                                   //     context,
                                   //     PageTransition(
                                   //         duration: const Duration(
-                                  //             microseconds: 500),
+                                  //             milliseconds: 500),
                                   //         type: PageTransitionType.fade,
                                   //         child:
                                   //             const ReportsScreen()));

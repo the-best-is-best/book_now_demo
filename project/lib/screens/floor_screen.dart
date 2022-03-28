@@ -8,7 +8,6 @@ import '../components/form_field.dart';
 import '../shared/cubit/houses_states/my_houses_states.dart';
 import '../shared/init_page.dart';
 import '../shared/modals/houses_model.dart';
-import '../shared/services/internet_connection/internet_popup.dart';
 
 class FloorRoom extends StatefulWidget {
   final HouseModel myHouse;
@@ -94,7 +93,11 @@ class _FloorRoomState extends State<FloorRoom> {
                             state is MyHousesLoadingButton
                                 ? const CircularProgressIndicator()
                                 : ElevatedButton(
-                                    child: const Text("Add"),
+                                    child: Text(
+                                      "Add",
+                                      style: TBIBFontStyle.h4
+                                          .copyWith(color: Colors.white),
+                                    ),
                                     onPressed: () {
                                       _keyForm.currentState!.save();
                                       if (!_keyForm.currentState!.validate()) {

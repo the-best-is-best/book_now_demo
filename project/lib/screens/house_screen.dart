@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../components/app_bar_component.dart';
 import '../components/build_menu.dart';
 import '../shared/init_page.dart';
-import '../shared/services/internet_connection/internet_popup.dart';
 import '../shared/style/main_style.dart';
 
 class HousesScreen extends StatefulWidget {
@@ -24,6 +23,12 @@ class _HousesScreenState extends State<HousesScreen> {
   void initState() {
     initPage(context);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _advancedDrawerController.dispose();
+    super.dispose();
   }
 
   @override

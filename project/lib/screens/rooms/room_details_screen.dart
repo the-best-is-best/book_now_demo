@@ -1,5 +1,6 @@
 import 'package:book_now_demo/shared/cubit/houses_states/my_house_cubit.dart';
 import 'package:book_now_demo/shared/cubit/rooms_states/rooms_cubit.dart';
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -46,12 +47,14 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
     }
     return BlocConsumer<MyRoomsCubit, MyRoomsStates>(
       listener: (BuildContext context, MyRoomsStates state) {
-        if (state is MyRoomsAddSuccess) {
-        } else if (state is MyRoomsAddFailed) {}
+        if (state is MyRoomsUpdateSuccess) {
+          BotToast.showText(text: "Updated");
+        } else if (state is MyRoomsUpdateFailed) {}
       },
       builder: (BuildContext context, MyRoomsStates state) => Scaffold(
         appBar: AppBar(
-          title: Text("${myHouse.name} - Room  ${widget.room.name}"),
+          title: Text(
+              "H: ${myHouse.name} - F: ${widget.room.floor} R:  ${widget.room.name}"),
           actions: [
             IconButton(
               icon: cubitRoom.editRoomActive
@@ -139,7 +142,11 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                                   state is MyRoomsLoadingButton
                                       ? const CircularProgressIndicator()
                                       : ElevatedButton(
-                                          child: const Text("Edit"),
+                                          child: Text(
+                                            "Edit",
+                                            style: TBIBFontStyle.h4
+                                                .copyWith(color: Colors.white),
+                                          ),
                                           onPressed: () {
                                             _keyForm.currentState!.save();
                                             if (!_keyForm.currentState!
@@ -151,9 +158,6 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                                             cubitRoom.updateRoom(
                                               AddBunkBed(
                                                   id: widget.room.id,
-                                                  room: widget.room.name,
-                                                  floor: widget.room.floor,
-                                                  houseId: widget.room.houseId,
                                                   bunkBed: int.parse(
                                                       newNumOfBunkBedController
                                                           .text),
@@ -168,14 +172,14 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                                 children: [
                                   Text(
                                     "Number of bed : ${widget.room.numbersOfBed}",
-                                    style: TBIBFontStyle.h3,
+                                    style: TBIBFontStyle.h4,
                                   ),
                                   const SizedBox(
                                     height: 20,
                                   ),
                                   Text(
                                     "Number of Bunk Bed : ${widget.room.bunkBed}",
-                                    style: TBIBFontStyle.h3,
+                                    style: TBIBFontStyle.h4,
                                   ),
                                   const SizedBox(
                                     height: 5,
@@ -186,14 +190,14 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                                   ),
                                   Text(
                                     "Singe bed : ${widget.room.numbersOfBed - (widget.room.bunkBed * 2)}",
-                                    style: TBIBFontStyle.h3,
+                                    style: TBIBFontStyle.h4,
                                   ),
                                   const SizedBox(
                                     height: 20,
                                   ),
                                   Text(
                                     "Bunk bed : ${(widget.room.bunkBed)} - (*2) ",
-                                    style: TBIBFontStyle.h3,
+                                    style: TBIBFontStyle.h4,
                                   ),
                                 ],
                               ),

@@ -1,5 +1,5 @@
 class CreateHouseModel {
-  String name;
+  final String name;
   int floor;
 
   CreateHouseModel({
@@ -13,8 +13,8 @@ class CreateHouseModel {
 }
 
 class HouseModel {
-  int id;
-  String name;
+  final int id;
+  final String name;
   int floor;
 
   HouseModel({

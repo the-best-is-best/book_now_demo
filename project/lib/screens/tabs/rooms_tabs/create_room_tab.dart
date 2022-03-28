@@ -117,7 +117,8 @@ Widget createRoomTab() {
                         : ElevatedButton(
                             child: Text(
                               "Create",
-                              style: TBIBFontStyle.h4Dark,
+                              style: TBIBFontStyle.h4
+                                  .copyWith(color: Colors.white),
                             ),
                             onPressed: () {
                               _keyForm.currentState!.save();

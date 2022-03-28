@@ -6,6 +6,7 @@ import 'dart:io';
 import 'package:book_now_demo/screens/splash_screen.dart';
 import 'package:book_now_demo/shared/cubit/floor_states/my_floor_cubit.dart';
 import 'package:book_now_demo/shared/cubit/houses_states/my_house_cubit.dart';
+import 'package:book_now_demo/shared/cubit/people_states/my_people_cubit.dart';
 import 'package:book_now_demo/shared/cubit/projects_states/my_project_cubit.dart';
 import 'package:book_now_demo/shared/cubit/rooms_states/rooms_cubit.dart';
 import 'package:book_now_demo/shared/services/firebase_messages/projects_message.dart';
@@ -13,7 +14,6 @@ import 'package:book_now_demo/shared/services/firebase_messages/room_messages.da
 import 'package:book_now_demo/shared/services/font_services.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +28,7 @@ import 'shared/bloc_observer.dart';
 import 'shared/network/dio_network.dart';
 import 'shared/services/alert_google_services.dart';
 import 'shared/services/firebase_messages/house_messages.dart';
+import 'shared/services/firebase_messages/people_message.dart';
 import 'shared/services/internet_connection/check_internet.dart';
 import 'shared/services/firebase_services.dart';
 import 'shared/style/main_style.dart';
@@ -69,7 +70,6 @@ Future<void> main() async {
       blocObserver: MyBlocObserver(),
     );
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      print(message);
       Map? mapMessage;
       mapMessage = json.decode(message.data['listen']);
       if (mapMessage != null) {
@@ -92,6 +92,13 @@ Future<void> main() async {
               break;
             case 'Room Updated':
               updateRoomMessages(mapMessage['id']);
+              break;
+
+            case 'People Created':
+              createPeopleMessages();
+              break;
+            case 'People Updated':
+              updatePeopleMessages(mapMessage['id']);
               break;
           }
         } else {
@@ -146,6 +153,9 @@ class _MyAppState extends State<MyApp> {
             ),
             BlocProvider<MyRoomsCubit>(
               create: (BuildContext context) => MyRoomsCubit(),
+            ),
+            BlocProvider<MyPeopleCubit>(
+              create: (BuildContext context) => MyPeopleCubit(),
             ),
           ],
           child: MaterialApp(

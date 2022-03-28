@@ -36,7 +36,7 @@ Widget createProjectTab() {
             Center(
                 child: Text(
               "Create Project",
-              style: TBIBFontStyle.h2,
+              style: TBIBFontStyle.h3,
             )),
             const SizedBox(
               height: 5,
@@ -174,7 +174,8 @@ Widget createProjectTab() {
                         : ElevatedButton(
                             child: Text(
                               "Create",
-                              style: TBIBFontStyle.h4Dark,
+                              style: TBIBFontStyle.h4
+                                  .copyWith(color: Colors.white),
                             ),
                             onPressed: () {
                               _keyForm.currentState!.save();

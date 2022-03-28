@@ -1,36 +1,37 @@
-import 'package:book_now_demo/shared/cubit/houses_states/my_house_cubit.dart';
-import 'package:book_now_demo/shared/cubit/houses_states/my_houses_states.dart';
+import 'package:book_now_demo/shared/cubit/people_states/my_people_cubit.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tbib_style/tbib_style.dart';
+import 'package:tbib_style/style/font_style.dart';
 
 import '../../../components/form_field.dart';
-import '../../../shared/modals/houses_model.dart';
+import '../../../shared/cubit/people_states/my_people_stares.dart';
+import '../../../shared/modals/people_model.dart';
 
-Widget createHouseTab() {
+Widget createPeopleTab() {
   GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
-  TextEditingController houseNameController = TextEditingController();
-  TextEditingController floorNamberController = TextEditingController();
+  TextEditingController peopleNameController = TextEditingController();
+  TextEditingController telController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
 
   return Builder(
     builder: (context) {
-      final MyHousesCubit cubitHouse = MyHousesCubit.get(context);
-      MyHousesCubit.context = context;
-      return BlocConsumer<MyHousesCubit, MyHousesStates>(
-        listener: (BuildContext context, MyHousesStates state) {
-          if (state is MyHousesAddSuccess) {
-            houseNameController.text = floorNamberController.text = "";
+      final MyPeopleCubit myPeopleCubit = MyPeopleCubit.get(context);
+      return BlocConsumer<MyPeopleCubit, MyPeopleStates>(
+        listener: (BuildContext context, MyPeopleStates state) {
+          if (state is MyPeopleAddSuccess) {
+            peopleNameController.text =
+                telController.text = cityController.text = "";
             BotToast.showText(text: "Added");
-          } else if (state is MyHousesAddFailed) {}
+          } else if (state is MyPeopleAddFailed) {}
         },
-        builder: (BuildContext context, MyHousesStates state) => Column(
+        builder: (BuildContext context, MyPeopleStates state) => Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
                 child: Text(
-              "Create Houses",
+              "Create People",
               style: TBIBFontStyle.h3,
             )),
             const SizedBox(
@@ -49,8 +50,8 @@ Widget createHouseTab() {
                   children: [
                     defaultFormField(
                         context: context,
-                        controller: houseNameController,
-                        label: 'House Name *',
+                        controller: peopleNameController,
+                        label: 'People Name *',
                         type: TextInputType.text,
                         validate: (String? val) {
                           if (val == null || val.isEmpty || val.length < 3) {
@@ -63,12 +64,13 @@ Widget createHouseTab() {
                     ),
                     defaultFormField(
                         context: context,
-                        controller: floorNamberController,
-                        label: 'Total floors *',
+                        controller: telController,
+                        label: 'Telephone',
                         type: TextInputType.number,
                         validate: (String? val) {
                           if (val == null || val.isEmpty) {
-                            return "empty !!";
+                            telController.text = val = "0";
+                            return null;
                           }
                           int? convertToInt = int.tryParse(val);
                           if (convertToInt == null) {
@@ -79,30 +81,43 @@ Widget createHouseTab() {
                     const SizedBox(
                       height: 15,
                     ),
-                    state is! MyHousesLoadingButton
-                        ? ElevatedButton(
+                    defaultFormField(
+                        context: context,
+                        controller: cityController,
+                        label: 'City *',
+                        type: TextInputType.text,
+                        validate: (String? val) {
+                          if (val == null || val.isEmpty) {
+                            return "empty !!";
+                          }
+                          return null;
+                        }),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    state is MyPeopleLoadingButton
+                        ? const CircularProgressIndicator()
+                        : ElevatedButton(
                             child: Text(
                               "Create",
                               style: TBIBFontStyle.h4
                                   .copyWith(color: Colors.white),
                             ),
-                            onPressed: () async {
+                            onPressed: () {
+                              _keyForm.currentState!.save();
                               if (!_keyForm.currentState!.validate()) {
                                 return;
                               }
                               _keyForm.currentState!.save();
-
-                              CreateHouseModel createHouseModel =
-                                  CreateHouseModel(
-                                name: houseNameController.text,
-                                floor: int.parse(
-                                  floorNamberController.text,
-                                ),
-                              );
-                              cubitHouse.createHouseClicked(createHouseModel);
+                              CreatePeopleModel createPeopleModel =
+                                  CreatePeopleModel(
+                                      name: peopleNameController.text,
+                                      tel: telController.text,
+                                      city: cityController.text);
+                              myPeopleCubit
+                                  .createPeopleClicked(createPeopleModel);
                             },
-                          )
-                        : const CircularProgressIndicator(),
+                          ),
                   ],
                 ),
               ),

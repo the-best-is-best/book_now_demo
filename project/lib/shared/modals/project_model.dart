@@ -1,8 +1,8 @@
 class CreateProjectModel {
-  String projectName;
-  int price;
-  int houseId;
-  String endDate;
+  final String projectName;
+  final int price;
+  final int houseId;
+  final String endDate;
 
   CreateProjectModel({
     required this.projectName,
@@ -20,11 +20,11 @@ class CreateProjectModel {
 }
 
 class ProjectsModel {
-  int id;
-  String projectName;
-  int houseId;
-  int price;
-  DateTime endDate;
+  final int id;
+  final String projectName;
+  final int houseId;
+  final int price;
+  final DateTime endDate;
 
   ProjectsModel({
     required this.id,

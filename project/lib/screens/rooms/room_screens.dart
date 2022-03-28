@@ -2,6 +2,7 @@ import 'package:book_now_demo/shared/cubit/rooms_states/rooms_cubit.dart';
 import 'package:book_now_demo/shared/cubit/rooms_states/rooms_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tbib_style/style/font_style.dart';
 
 import '../../shared/init_page.dart';
 import '../../shared/modals/houses_model.dart';
@@ -38,8 +39,17 @@ class _RoomScreenState extends State<RoomScreen> {
         },
         builder: (BuildContext context, MyRoomsStates state) => Scaffold(
           appBar: AppBar(
-              title: Text(
-                  "Rooms for - ${widget.house.name} - floor: ${widget.floor} ")),
+              title: Text("H: ${widget.house.name} - F: ${widget.floor} "),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      cubitRoom.getRooms();
+                    },
+                    child: Text(
+                      "Refresh",
+                      style: TBIBFontStyle.b2Dark,
+                    ))
+              ]),
           body: Center(
             child: SingleChildScrollView(
               child: SizedBox(

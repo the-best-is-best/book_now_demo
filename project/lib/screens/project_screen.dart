@@ -26,6 +26,12 @@ class _ProjectScreenState extends State<ProjectScreen> {
   }
 
   @override
+  void dispose() {
+    _advancedDrawerController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return AdvancedDrawer(
       backdropColor: Colors.blueGrey,

@@ -54,7 +54,7 @@ Widget buildFloorsExpanded(
                     Navigator.push(
                         context,
                         PageTransition(
-                            duration: const Duration(microseconds: 500),
+                            duration: const Duration(milliseconds: 500),
                             type: PageTransitionType.fade,
                             child: FloorRoom(
                               myHouse: myHouses,
@@ -85,14 +85,18 @@ Widget buildFloorsExpanded(
                                     context,
                                     PageTransition(
                                         duration:
-                                            const Duration(microseconds: 500),
+                                            const Duration(milliseconds: 500),
                                         type: PageTransitionType.fade,
                                         child: RoomScreen(
                                           house: myHouses,
                                           floor: floors.floor[index],
                                         ))));
                           },
-                          child: Text(floors.floor[index].toString()),
+                          child: Text(
+                            floors.floor[index].toString(),
+                            style:
+                                TBIBFontStyle.h4.copyWith(color: Colors.white),
+                          ),
                           style: ElevatedButton.styleFrom(
                             shape: const CircleBorder(),
                           ),

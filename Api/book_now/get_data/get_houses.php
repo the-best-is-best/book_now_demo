@@ -36,14 +36,21 @@ if ($_SERVER['REQUEST_METHOD']  !== 'GET') {
 
 
 try {
-    $id = $_GET['id']?? null;
-    if($id == null){
-    $haveData = $_GET['haveData'] ?? false;
-    $customQuery = $haveData==1 ? "ORDER BY id DESC LIMIT 1" : "";
-    }else{
+    $id = $_GET['id'] ?? null;
+    if ($id == null) {
+        $haveData = $_GET['haveData'] ?? false;
+        if ($haveData == 1) {
+            $count = $readDB->prepare("SELECT id FROM houses");
+            $count->execute();
+            $newRow = count($count->fetchAll()) - $_GET['count'];
+            
+        }
+        $customQuery = $haveData == 1 ? "ORDER BY id DESC LIMIT $newRow" : "";
+       
+    } else {
         $customQuery = "Where id = $id";
     }
-    $query = $readDB->prepare("SELECT * FROM houses $customQuery")  ;
+    $query = $readDB->prepare("SELECT * FROM houses $customQuery");
     $query->execute();
     $row = $query->fetchAll();
 

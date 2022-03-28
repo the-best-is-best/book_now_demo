@@ -1,3 +1,4 @@
+import 'package:book_now_demo/shared/cubit/people_states/my_people_cubit.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'cubit/floor_states/my_floor_cubit.dart';
@@ -14,4 +15,5 @@ void initPage(BuildContext context) {
   MyHousesCubit.context = context;
   MyRoomsCubit.context = context;
   MyFloorCubit.context = context;
+  MyPeopleCubit.context = context;
 }

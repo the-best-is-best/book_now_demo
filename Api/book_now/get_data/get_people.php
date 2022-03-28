@@ -36,18 +36,22 @@ if ($_SERVER['REQUEST_METHOD']  !== 'GET') {
 
 
 try {
-    if (!isset($_GET['id'])) {
-        $response = new Response();
-        $response->setHttpStatusCode(500);
-        $response->setSuccess(false);
-        $response->addMessage('Not allowed');
-        $response->send();
-        exit;
-    }
-    $get_id_data =  $_GET["id"];
+    $id = $_GET['id'] ?? null;
 
+    if ($id == null) {       
+         $haveData = $_GET['haveData'] ?? false;
+        if ($haveData == 1) {
+            $count = $readDB->prepare("SELECT id FROM people");
+             $count->execute();
+            $newRow = count($count->fetchAll()) -  $_GET['count'];
+        }
+
+        $customQuery = $haveData == 1 ? "ORDER BY id DESC LIMIT $newRow " : "";
+    } else {
+        $customQuery = "Where id = $id";
+    }
     // exit;
-    $query = $readDB->prepare('SELECT * FROM people  WHERE id IN (' . implode(',', $get_id_data) . ')');
+    $query = $readDB->prepare("SELECT * FROM people $customQuery ");
 
     $query->execute();
 

@@ -57,9 +57,7 @@ class MyRoomsCubit extends Cubit<MyRoomsStates> {
           await DioHelper.getData(url: 'get_data/get_rooms.php', query: data);
       if (response.statusCode == 201) {
         var datas = response.data['data'];
-        print("room update - $datas");
 
-// get item has been updated
         datas.forEach((data) {
           RoomsModel? roomUpdated;
           roomUpdated =

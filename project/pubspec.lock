@@ -514,9 +514,9 @@ packages:
   tbib_splash_screen:
     dependency: "direct main"
     description:
-      name: tbib_splash_screen
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../../../tbib_library/tbib_splash_screen"
+      relative: true
+    source: path
     version: "0.0.3"
   tbib_style:
     dependency: "direct main"

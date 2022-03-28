@@ -19,10 +19,10 @@ class CreateRoomModel {
 }
 
 class RoomsModel {
-  int id;
-  int name;
-  int houseId;
-  int floor;
+  final int id;
+  final int name;
+  final int houseId;
+  final int floor;
   int numbersOfBed;
   int bunkBed;
 
@@ -44,28 +44,16 @@ class RoomsModel {
 }
 
 class AddBunkBed {
-  int houseId;
-  int floor;
-  int room;
-  int numbersOfBed;
-  int bunkBed;
-  int id;
+  final int numbersOfBed;
+  final int bunkBed;
+  final int id;
 
   AddBunkBed({
     required this.id,
-    required this.houseId,
-    required this.floor,
-    required this.room,
     required this.numbersOfBed,
     required this.bunkBed,
   });
 
-  Map<String, dynamic> toJson() => {
-        'house_id': houseId,
-        'floor': floor,
-        'room': room,
-        'numbers_of_bed': numbersOfBed,
-        'bunk_bed': bunkBed,
-        'id': id
-      };
+  Map<String, dynamic> toJson() =>
+      {'numbers_of_bed': numbersOfBed, 'bunk_bed': bunkBed, 'id': id};
 }

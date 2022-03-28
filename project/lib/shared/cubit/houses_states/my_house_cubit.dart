@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:book_now_demo/shared/cubit/houses_states/my_houses_states.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:collection/collection.dart';
@@ -18,7 +16,6 @@ class MyHousesCubit extends Cubit<MyHousesStates> {
 
   static BuildContext? context;
 
-  bool loadingSearch = false;
   List<HouseModel> myHouses = [];
   List<HouseModel> searchMyHouse = [];
   int tabIndex = 0;
@@ -31,7 +28,10 @@ class MyHousesCubit extends Cubit<MyHousesStates> {
   Future getHouses(bool haveData) async {
     emit(MyHousesLoadingData());
 
-    Map<String, dynamic> data = {"haveData": haveData ? 1 : 0};
+    Map<String, dynamic> data = {
+      "haveData": haveData ? 1 : 0,
+      "count": myHouses.length.toString()
+    };
     try {
       var response =
           await DioHelper.getData(url: 'get_data/get_houses.php', query: data);
@@ -150,6 +150,8 @@ class MyHousesCubit extends Cubit<MyHousesStates> {
     }
   }
 
+  bool loadingSearch = false;
+
   void searchHouse(String search) {
     loadingSearch = true;
     emit(MyHousesSearch());
@@ -157,6 +159,8 @@ class MyHousesCubit extends Cubit<MyHousesStates> {
       searchMyHouse =
           myHouses.where((house) => house.name.contains(search)).toList();
     }
+    loadingSearch = false;
+
     emit(MyHousesGetData());
   }
 

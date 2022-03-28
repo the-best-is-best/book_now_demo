@@ -60,13 +60,17 @@ Widget selectRoomTab() {
                                       context,
                                       PageTransition(
                                           duration:
-                                              const Duration(microseconds: 500),
+                                              const Duration(milliseconds: 500),
                                           type: PageTransitionType.fade,
                                           child: RoomDetailsScreen(
                                             room: curRoomes[index],
                                           )));
                                 },
-                                child: Text(curRoomes[index].name.toString()),
+                                child: Text(
+                                  curRoomes[index].name.toString(),
+                                  style: TBIBFontStyle.h4
+                                      .copyWith(color: Colors.white),
+                                ),
                                 style: ElevatedButton.styleFrom(
                                   shape: const CircleBorder(),
                                 ),

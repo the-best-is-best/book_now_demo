@@ -1,6 +1,6 @@
 class FloorModel {
-  int houseId;
-  List<int> floor;
+  final int houseId;
+  final List<int> floor;
 
   FloorModel({
     required this.houseId,

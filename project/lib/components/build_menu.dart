@@ -3,7 +3,8 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../screens/house_screen.dart';
+import '../../screens/house_screen.dart';
+import '../../screens/people/people_screen.dart';
 import '../screens/project_screen.dart';
 import '../shared/style/main_style.dart';
 
@@ -65,21 +66,23 @@ Widget buildMenu(int curPage, BuildContext context,
             leading: const FaIcon(FontAwesomeIcons.houseUser),
             title: const Text('Houses'),
           ),
-          // ListTile(
-          //   selected: curPage == 2 ? true : false,
-          //   onTap: curPage == 2
-          //       ? null
-          //       : () {
-          //           Navigator.pushReplacement(
-          //               context,
-          //               PageTransition(
-          //                   duration: const Duration(microseconds: 500),
-          //                   type: PageTransitionType.fade,
-          //                   child: const PeopleScreen()));
-          //         },
-          //   leading: const Icon(Icons.people_alt),
-          //   title: const Text('People'),
-          // ),
+          ListTile(
+            selected: curPage == 2 ? true : false,
+            onTap: curPage == 2
+                ? null
+                : () async {
+                    drawerController.hideDrawer();
+                    await Future.delayed(const Duration(milliseconds: 290));
+                    Navigator.pushReplacement(
+                        context,
+                        PageTransition(
+                            duration: const Duration(milliseconds: 500),
+                            type: PageTransitionType.fade,
+                            child: const PeopleScreen()));
+                  },
+            leading: const Icon(Icons.people_alt),
+            title: const Text('People'),
+          ),
           // ListTile(
           //   selected: curPage == 3 ? true : false,
           //   onTap: curPage == 3
@@ -88,7 +91,7 @@ Widget buildMenu(int curPage, BuildContext context,
           //           Navigator.pushReplacement(
           //               context,
           //               PageTransition(
-          //                   duration: const Duration(microseconds: 500),
+          //                   duration: const Duration(milliseconds: 500),
           //                   type: PageTransitionType.fade,
           //                   child: const TravelScreen()));
           //         },
@@ -107,7 +110,7 @@ Widget buildMenu(int curPage, BuildContext context,
                     Navigator.pushReplacement(
                         context,
                         PageTransition(
-                            duration: Duration(microseconds: 500),
+                            duration: Duration(milliseconds: 500),
                             type: PageTransitionType.fade,
                             child: HistoryScreen()));
                   },
