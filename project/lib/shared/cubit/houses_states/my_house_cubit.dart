@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../components/custom_dialog.dart';
-import '../../../screens/tabs/create_select_houes/create_house_tab.dart';
-import '../../../screens/tabs/create_select_houes/select_house_tab.dart';
+import '../../../screens/tabs/house_tab/create_house_tab.dart';
+import '../../../screens/tabs/house_tab/select_house_tab.dart';
 import '../../modals/houses_model.dart';
 import '../../network/dio_network.dart';
 

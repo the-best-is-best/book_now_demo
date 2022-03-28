@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../components/custom_dialog.dart';
-import '../../../screens/tabs/create_select_project/create_project_tab.dart';
-import '../../../screens/tabs/create_select_project/select_project_tab.dart';
+
+import '../../../screens/tabs/project_tab/create_project_tab.dart';
+import '../../../screens/tabs/project_tab/select_project_tab.dart';
 import '../../modals/project_model.dart';
 import '../../network/dio_network.dart';
 import 'my_projects_states.dart';

@@ -1,7 +1,14 @@
+import 'package:book_now_demo/shared/cubit/travel_states/my_travel_cubit.dart';
+import 'package:book_now_demo/shared/cubit/travel_states/travel_states.dart';
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+
+import '../../components/app_bar_component.dart';
+import '../../components/build_menu.dart';
+import '../../shared/style/main_style.dart';
 
 class TravelScreen extends StatefulWidget {
   const TravelScreen({Key? key}) : super(key: key);
@@ -15,12 +22,10 @@ class _TravelScreenState extends State<TravelScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final myTravelRead = context.read<TravelProvider>();
-    final myTravelWatch = context.watch<TravelProvider>();
-    final myCheckLoading = context.watch<CheckDataProvider>();
-    return getDataServer(
-      context: context,
-      child: AdvancedDrawer(
+    final MyTravelCubit cubitTravel = MyTravelCubit.get(context);
+    return BlocConsumer<MyTravelCubit, MyTravelsStates>(
+      listener: (BuildContext context, MyTravelsStates state) {},
+      builder: (BuildContext context, MyTravelsStates state) => AdvancedDrawer(
         openRatio: .75,
         backdropColor: Colors.blueGrey,
         controller: _advancedDrawerController,
@@ -36,39 +41,36 @@ class _TravelScreenState extends State<TravelScreen> {
           ],
           borderRadius: BorderRadius.all(Radius.circular(16)),
         ),
-        drawer: buildMenu(3, context),
+        drawer: buildMenu(3, context, _advancedDrawerController),
         child: Scaffold(
           appBar: buildAppBar("Travel", _advancedDrawerController),
-          body: myCheckLoading.loading
-              ? const Center(child: CircularProgressIndicator())
-              : Center(
-                  child: DoubleBackToCloseApp(
-                    snackBar: const SnackBar(
-                      content: Text('Tap back again to leave'),
-                    ),
-                    child: SingleChildScrollView(
-                      child: SizedBox(
-                        width: myTravelWatch.tabIndex == 0
-                            ? MediaQuery.of(context).size.width / 1.1
-                            : null,
-                        child: Card(
-                          elevation: 20,
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: myTravelWatch
-                                .tabsWidget[myTravelWatch.tabIndex],
-                          ),
-                        ),
-                      ),
+          body: Center(
+            child: DoubleBackToCloseApp(
+              snackBar: const SnackBar(
+                content: Text('Tap back again to leave'),
+              ),
+              child: SingleChildScrollView(
+                child: SizedBox(
+                  width: cubitTravel.tabIndex == 0
+                      ? MediaQuery.of(context).size.width / 1.1
+                      : null,
+                  child: Card(
+                    elevation: 20,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: cubitTravel.tabsWidget[cubitTravel.tabIndex],
                     ),
                   ),
                 ),
+              ),
+            ),
+          ),
           bottomNavigationBar: BottomNavigationBar(
             elevation: 20,
             onTap: (val) {
-              myTravelRead.changeTabIndex(val);
+              cubitTravel.changeTabIndex(val);
             },
-            currentIndex: myTravelWatch.tabIndex,
+            currentIndex: cubitTravel.tabIndex,
             unselectedFontSize: 15,
             type: BottomNavigationBarType.fixed,
             backgroundColor: mainColor,

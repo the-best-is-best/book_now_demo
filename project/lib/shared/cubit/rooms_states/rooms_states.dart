@@ -2,9 +2,7 @@ abstract class MyRoomsStates {}
 
 class MyRoomsInitialState extends MyRoomsStates {}
 
-class MyHousesChangeTabs extends MyRoomsStates {}
-
-class MyHousesChangeHouseSelected extends MyRoomsStates {}
+class MyRoomsChangeTabs extends MyRoomsStates {}
 
 class MyRoomsLoadingData extends MyRoomsStates {}
 

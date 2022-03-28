@@ -6,7 +6,6 @@ import 'package:tbib_style/style/font_style.dart';
 
 import '../../shared/init_page.dart';
 import '../../shared/modals/houses_model.dart';
-import '../../shared/services/internet_connection/internet_popup.dart';
 import '../../shared/style/main_style.dart';
 
 class RoomScreen extends StatefulWidget {

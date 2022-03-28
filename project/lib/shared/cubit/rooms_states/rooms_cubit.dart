@@ -169,6 +169,6 @@ class MyRoomsCubit extends Cubit<MyRoomsStates> {
   ];
   void changeTabIndex(index) {
     tabIndex = index;
-    emit(MyHousesChangeTabs());
+    emit(MyRoomsChangeTabs());
   }
 }
