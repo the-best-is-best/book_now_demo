@@ -2,10 +2,12 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tbib_style/tbib_style.dart';
 
 import '../../components/form_field.dart';
 import '../../shared/cubit/travel_states/my_travel_cubit.dart';
 import '../../shared/cubit/travel_states/travel_states.dart';
+import '../../shared/init_page.dart';
 import '../../shared/modals/travel_model.dart';
 
 class TravelDetailsScreen extends StatefulWidget {
@@ -23,12 +25,14 @@ class _TravelDetailsScreenState extends State<TravelDetailsScreen> {
   final newNameTravelController = TextEditingController();
 
   bool firstload = false;
+
   @override
   void initState() {
     if (!firstload) {
       newNameTravelController.text = widget.travel.name;
       firstload = true;
     }
+    initPage(context);
     super.initState();
   }
 
@@ -38,7 +42,6 @@ class _TravelDetailsScreenState extends State<TravelDetailsScreen> {
     return BlocConsumer<MyTravelCubit, MyTravelsStates>(
       listener: (BuildContext context, MyTravelsStates state) {
         if (state is MyTravelsUpdateSuccess) {
-          newNameTravelController.text = "";
           BotToast.showText(text: "Upadated");
         }
       },
@@ -86,10 +89,7 @@ class _TravelDetailsScreenState extends State<TravelDetailsScreen> {
                                           if (val == null || val.isEmpty) {
                                             return "Empty !!";
                                           }
-                                          int? convertToInt = int.tryParse(val);
-                                          if (convertToInt == null) {
-                                            return "Number not valid";
-                                          }
+
                                           return null;
                                         }),
                                   ),
@@ -99,7 +99,11 @@ class _TravelDetailsScreenState extends State<TravelDetailsScreen> {
                                   state is MyTravelsLoadingButton
                                       ? const CircularProgressIndicator()
                                       : ElevatedButton(
-                                          child: const Text("Edit"),
+                                          child: Text(
+                                            "Edit",
+                                            style: TBIBFontStyle.h4
+                                                .copyWith(color: Colors.white),
+                                          ),
                                           onPressed: () {
                                             _keyForm.currentState!.save();
                                             if (!_keyForm.currentState!
@@ -119,7 +123,7 @@ class _TravelDetailsScreenState extends State<TravelDetailsScreen> {
                               )
                             : Text(
                                 "Name : ${widget.travel.name}",
-                                style: Theme.of(context).textTheme.headline3,
+                                style: TBIBFontStyle.h3,
                               ),
                         const SizedBox(
                           height: 20,

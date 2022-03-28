@@ -32,6 +32,12 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
   @override
   void initState() {
     initPage(context);
+    if (!firstload) {
+      newNamePeopleController.text = widget.people.name;
+      newTelController.text = widget.people.tel.toString();
+      newcityController.text = widget.people.city;
+      firstload = true;
+    }
     super.initState();
   }
 
@@ -41,12 +47,7 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
 
     final myPeople = myPeopleCubit.myPeople
         .firstWhere((people) => people.id == widget.people.id);
-    if (!firstload) {
-      newNamePeopleController.text = widget.people.name;
-      newTelController.text = widget.people.tel.toString();
-      newcityController.text = widget.people.city;
-      firstload = true;
-    }
+
     return BlocConsumer<MyPeopleCubit, MyPeopleStates>(
       listener: (BuildContext context, MyPeopleStates state) {
         if (state is MyPeopleUpdateSuccess) {

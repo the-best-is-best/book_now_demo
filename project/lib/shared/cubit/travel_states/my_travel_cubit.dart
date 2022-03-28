@@ -82,7 +82,7 @@ class MyTravelCubit extends Cubit<MyTravelsStates> {
         query: createTravel,
       );
       var data = response.data;
-      if (data['messages'][0] == "Travels Created") {
+      if (data['messages'][0] == "Travel Created") {
         await DioHelper.postNotification(data: {"messages": "Travel Created"});
         emit(MyTravelsAddSuccess());
       } else {

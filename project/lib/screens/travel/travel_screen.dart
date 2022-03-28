@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 
 import '../../components/app_bar_component.dart';
 import '../../components/build_menu.dart';
+import '../../shared/init_page.dart';
 import '../../shared/style/main_style.dart';
 
 class TravelScreen extends StatefulWidget {
@@ -19,6 +20,17 @@ class TravelScreen extends StatefulWidget {
 
 class _TravelScreenState extends State<TravelScreen> {
   final _advancedDrawerController = AdvancedDrawerController();
+  @override
+  void initState() {
+    initPage(context);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _advancedDrawerController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

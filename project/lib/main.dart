@@ -9,6 +9,7 @@ import 'package:book_now_demo/shared/cubit/houses_states/my_house_cubit.dart';
 import 'package:book_now_demo/shared/cubit/people_states/my_people_cubit.dart';
 import 'package:book_now_demo/shared/cubit/projects_states/my_project_cubit.dart';
 import 'package:book_now_demo/shared/cubit/rooms_states/rooms_cubit.dart';
+import 'package:book_now_demo/shared/cubit/travel_states/my_travel_cubit.dart';
 import 'package:book_now_demo/shared/services/firebase_messages/projects_message.dart';
 import 'package:book_now_demo/shared/services/firebase_messages/room_messages.dart';
 import 'package:book_now_demo/shared/services/font_services.dart';
@@ -29,6 +30,7 @@ import 'shared/network/dio_network.dart';
 import 'shared/services/alert_google_services.dart';
 import 'shared/services/firebase_messages/house_messages.dart';
 import 'shared/services/firebase_messages/people_message.dart';
+import 'shared/services/firebase_messages/travel_messages.dart';
 import 'shared/services/internet_connection/check_internet.dart';
 import 'shared/services/firebase_services.dart';
 import 'shared/style/main_style.dart';
@@ -100,6 +102,13 @@ Future<void> main() async {
             case 'People Updated':
               updatePeopleMessages(mapMessage['id']);
               break;
+
+            case 'Travel Created':
+              createTravelMessages();
+              break;
+            case 'Travel Updated':
+              updateTravelMessages(mapMessage['id']);
+              break;
           }
         } else {
           log("message empty");
@@ -156,6 +165,9 @@ class _MyAppState extends State<MyApp> {
             ),
             BlocProvider<MyPeopleCubit>(
               create: (BuildContext context) => MyPeopleCubit(),
+            ),
+            BlocProvider<MyTravelCubit>(
+              create: (BuildContext context) => MyTravelCubit(),
             ),
           ],
           child: MaterialApp(

@@ -6,6 +6,7 @@ import 'package:page_transition/page_transition.dart';
 import '../../screens/house_screen.dart';
 import '../../screens/people/people_screen.dart';
 import '../screens/project_screen.dart';
+import '../screens/travel/travel_screen.dart';
 import '../shared/style/main_style.dart';
 
 Widget buildMenu(int curPage, BuildContext context,
@@ -44,7 +45,6 @@ Widget buildMenu(int curPage, BuildContext context,
               'My Project',
             ),
           ),
-
           ListTile(
             selected: curPage == 1 ? true : false,
             onTap: curPage == 1
@@ -83,21 +83,23 @@ Widget buildMenu(int curPage, BuildContext context,
             leading: const Icon(Icons.people_alt),
             title: const Text('People'),
           ),
-          // ListTile(
-          //   selected: curPage == 3 ? true : false,
-          //   onTap: curPage == 3
-          //       ? null
-          //       : () {
-          //           Navigator.pushReplacement(
-          //               context,
-          //               PageTransition(
-          //                   duration: const Duration(milliseconds: 500),
-          //                   type: PageTransitionType.fade,
-          //                   child: const TravelScreen()));
-          //         },
-          //   leading: const Icon(Icons.travel_explore),
-          //   title: const Text('Travel'),
-          // ),
+          ListTile(
+            selected: curPage == 3 ? true : false,
+            onTap: curPage == 3
+                ? null
+                : () async {
+                    drawerController.hideDrawer();
+                    await Future.delayed(const Duration(milliseconds: 290));
+                    Navigator.pushReplacement(
+                        context,
+                        PageTransition(
+                            duration: const Duration(milliseconds: 500),
+                            type: PageTransitionType.fade,
+                            child: const TravelScreen()));
+                  },
+            leading: const Icon(Icons.travel_explore),
+            title: const Text('Travel'),
+          ),
           /*
           ListTile(
             selected: curPage == 4 ? true : false,

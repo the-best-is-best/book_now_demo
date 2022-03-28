@@ -40,8 +40,8 @@ Widget selectTravelTab() {
                     )
                   : Center(
                       child: Text(
-                        "No travel",
-                        style: Theme.of(context).textTheme.headline3,
+                        "No Travel",
+                        style: TBIBFontStyle.h4,
                       ),
                     )
             ],
@@ -75,7 +75,10 @@ ListView buildListView({
                         child: TravelDetailsScreen(
                             travel: myTravelWatch.myTravel[index])));
               },
-              child: Text(myTravelWatch.myTravel[index].name),
+              child: Text(
+                myTravelWatch.myTravel[index].name,
+                style: TBIBFontStyle.h4.copyWith(color: Colors.white),
+              ),
             )),
       );
     },

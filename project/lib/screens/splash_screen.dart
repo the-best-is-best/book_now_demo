@@ -2,6 +2,7 @@ import 'package:book_now_demo/screens/project_screen.dart';
 import 'package:book_now_demo/shared/cubit/people_states/my_people_cubit.dart';
 import 'package:book_now_demo/shared/cubit/projects_states/my_project_cubit.dart';
 import 'package:book_now_demo/shared/cubit/rooms_states/rooms_cubit.dart';
+import 'package:book_now_demo/shared/cubit/travel_states/my_travel_cubit.dart';
 import 'package:book_now_demo/shared/init_page.dart';
 import 'package:flutter/material.dart';
 import 'package:tbib_splash_screen/splash_screen_view.dart';
@@ -35,6 +36,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
     MyPeopleCubit cubitPeople = MyPeopleCubit.get(context);
     cubitPeople.getPeople(false);
+
+    MyTravelCubit cubitTravel = MyTravelCubit.get(context);
+    cubitTravel.getTravel(false);
 
     setState(() {
       isLoaded = true;
