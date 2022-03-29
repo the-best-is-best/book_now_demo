@@ -7,6 +7,7 @@ import 'package:tbib_style/tbib_style.dart';
 
 import '../../../components/form_field.dart';
 import '../../../shared/modals/rooms_model.dart';
+import '../../../shared/style/main_style.dart';
 
 Widget createRoomTab() {
   GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
@@ -38,14 +39,14 @@ Widget createRoomTab() {
               "Create Room",
               style: TBIBFontStyle.h3,
             )),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: spacing5,
             ),
-            const Divider(
-              thickness: 3,
+            Divider(
+              thickness: spacing3,
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: spacing15,
             ),
             Center(
               child: Form(
@@ -67,8 +68,8 @@ Widget createRoomTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     defaultFormField(
                         context: context,
@@ -91,8 +92,8 @@ Widget createRoomTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     defaultFormField(
                         context: context,
@@ -109,8 +110,8 @@ Widget createRoomTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     state is MyRoomsLoadingButton
                         ? const CircularProgressIndicator()
@@ -163,8 +164,8 @@ Widget createRoomTab() {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: spacing20,
             )
           ],
         ),

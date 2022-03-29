@@ -7,6 +7,7 @@ import 'package:tbib_style/style/font_style.dart';
 import '../../../components/form_field.dart';
 import '../../../shared/cubit/people_states/my_people_stares.dart';
 import '../../../shared/modals/people_model.dart';
+import '../../../shared/style/main_style.dart';
 
 Widget createPeopleTab() {
   GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
@@ -34,14 +35,14 @@ Widget createPeopleTab() {
               "Create People",
               style: TBIBFontStyle.h3,
             )),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: spacing3,
             ),
-            const Divider(
-              thickness: 3,
+            Divider(
+              thickness: spacing3,
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: spacing15,
             ),
             Center(
               child: Form(
@@ -59,8 +60,8 @@ Widget createPeopleTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     defaultFormField(
                         context: context,
@@ -78,8 +79,8 @@ Widget createPeopleTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     defaultFormField(
                         context: context,
@@ -92,8 +93,8 @@ Widget createPeopleTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     state is MyPeopleLoadingButton
                         ? const CircularProgressIndicator()
@@ -122,8 +123,8 @@ Widget createPeopleTab() {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: spacing20,
             )
           ],
         ),

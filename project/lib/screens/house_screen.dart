@@ -74,7 +74,10 @@ class _HousesScreenState extends State<HousesScreen> {
                       elevation: 20,
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: cubitHouse.tabsWidget[cubitHouse.tabIndex],
+                        child: AnimatedOpacity(
+                            opacity: cubitHouse.opacityTab,
+                            duration: const Duration(milliseconds: 125),
+                            child: cubitHouse.tabsWidget[cubitHouse.tabIndex]),
                       ),
                     ),
                   ),

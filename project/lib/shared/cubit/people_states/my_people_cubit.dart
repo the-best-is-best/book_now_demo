@@ -176,9 +176,14 @@ class MyPeopleCubit extends Cubit<MyPeopleStates> {
     createPeopleTab(),
     selectPeopleTab(),
   ];
-
-  void changeTabIndex(index) {
-    tabIndex = index;
+  double opacityTab = 1;
+  void changeTabIndex(index) async {
+    opacityTab = 0;
     emit(MyPeopleChangeTabs());
+    await Future.delayed(const Duration(milliseconds: 150)).then((value) {
+      tabIndex = index;
+      opacityTab = 1;
+      emit(MyPeopleChangeTabs());
+    });
   }
 }

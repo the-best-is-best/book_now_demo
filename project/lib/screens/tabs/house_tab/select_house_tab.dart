@@ -7,6 +7,7 @@ import '../../../components/expanded/floors_expanded.dart';
 import '../../../components/search_component.dart';
 import '../../../shared/cubit/houses_states/my_house_cubit.dart';
 import '../../../shared/cubit/houses_states/my_houses_states.dart';
+import '../../../shared/style/main_style.dart';
 
 Widget selectHousesTab() {
   final searchControllerController = TextEditingController();
@@ -40,14 +41,14 @@ Widget selectHousesTab() {
                 "Select Houses",
                 style: TBIBFontStyle.h3,
               )),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: spacing5,
               ),
               const Divider(
                 thickness: 3,
               ),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: spacing5,
               ),
               Center(
                 child: searchControllerController.text.isEmpty

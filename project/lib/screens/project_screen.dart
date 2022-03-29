@@ -74,7 +74,11 @@ class _ProjectScreenState extends State<ProjectScreen> {
                       elevation: 20,
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
-                        child: cubitProject.tabsWidget[cubitProject.tabIndex],
+                        child: AnimatedOpacity(
+                            opacity: cubitProject.opacityTab,
+                            duration: const Duration(milliseconds: 125),
+                            child:
+                                cubitProject.tabsWidget[cubitProject.tabIndex]),
                       ),
                     ),
                   ),

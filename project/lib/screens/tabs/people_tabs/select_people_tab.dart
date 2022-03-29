@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:tbib_style/tbib_style.dart';
 
 import '../../../components/search_component.dart';
 import '../../../shared/cubit/people_states/my_people_cubit.dart';
 import '../../../shared/cubit/people_states/my_people_stares.dart';
+import '../../../shared/style/main_style.dart';
 import '../../people/people_details_screen.dart';
 
 Widget selectPeopleTab() {
@@ -39,14 +41,14 @@ Widget selectPeopleTab() {
                 "Select People",
                 style: TBIBFontStyle.h3,
               )),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: spacing5,
               ),
               const Divider(
                 thickness: 3,
               ),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: spacing5,
               ),
               searchPeopleController.text.isEmpty
                   ? myPeopleCubit.myPeople.isNotEmpty
@@ -132,8 +134,8 @@ ListView buildListView({
       );
     },
     separatorBuilder: (BuildContext context, int index) {
-      return const Divider(
-        thickness: 2,
+      return Divider(
+        thickness: 2.h,
       );
     },
   );

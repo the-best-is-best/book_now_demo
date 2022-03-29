@@ -69,7 +69,11 @@ class _PeopleScreenState extends State<PeopleScreen> {
                     elevation: 20,
                     child: Padding(
                       padding: const EdgeInsets.all(12.0),
-                      child: myPeopleCubit.tabsWidget[myPeopleCubit.tabIndex],
+                      child: AnimatedOpacity(
+                          opacity: myPeopleCubit.opacityTab,
+                          duration: const Duration(milliseconds: 125),
+                          child:
+                              myPeopleCubit.tabsWidget[myPeopleCubit.tabIndex]),
                     ),
                   ),
                 ),

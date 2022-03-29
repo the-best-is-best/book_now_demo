@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:tbib_style/style/font_style.dart';
 
 import '../../screens/house_screen.dart';
 import '../../screens/people/people_screen.dart';
@@ -17,6 +19,9 @@ Widget buildMenu(int curPage, BuildContext context,
       iconColor: Colors.white,
       selectedColor: mainColor,
       selectedTileColor: Colors.black54,
+      horizontalTitleGap: spacing20,
+      contentPadding:
+          EdgeInsets.symmetric(vertical: spacing15, horizontal: spacing20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -38,11 +43,13 @@ Widget buildMenu(int curPage, BuildContext context,
                       ),
                     );
                   },
-            leading: const FaIcon(
+            leading: FaIcon(
               FontAwesomeIcons.diagramProject,
+              size: iconTileSize,
             ),
-            title: const Text(
+            title: Text(
               'My Project',
+              style: TextStyle(fontSize: tileFontSize),
             ),
           ),
           ListTile(
@@ -63,8 +70,14 @@ Widget buildMenu(int curPage, BuildContext context,
                       ),
                     );
                   },
-            leading: const FaIcon(FontAwesomeIcons.houseUser),
-            title: const Text('Houses'),
+            leading: FaIcon(
+              FontAwesomeIcons.houseUser,
+              size: iconTileSize,
+            ),
+            title: Text(
+              'Houses',
+              style: TextStyle(fontSize: tileFontSize),
+            ),
           ),
           ListTile(
             selected: curPage == 2 ? true : false,
@@ -80,8 +93,14 @@ Widget buildMenu(int curPage, BuildContext context,
                             type: PageTransitionType.fade,
                             child: const PeopleScreen()));
                   },
-            leading: const Icon(Icons.people_alt),
-            title: const Text('People'),
+            leading: Icon(
+              Icons.people_alt,
+              size: iconTileSize,
+            ),
+            title: Text(
+              'People',
+              style: TextStyle(fontSize: tileFontSize),
+            ),
           ),
           ListTile(
             selected: curPage == 3 ? true : false,
@@ -97,8 +116,14 @@ Widget buildMenu(int curPage, BuildContext context,
                             type: PageTransitionType.fade,
                             child: const TravelScreen()));
                   },
-            leading: const Icon(Icons.travel_explore),
-            title: const Text('Travel'),
+            leading: Icon(
+              Icons.travel_explore,
+              size: iconTileSize,
+            ),
+            title: Text(
+              'Travel',
+              style: TextStyle(fontSize: tileFontSize),
+            ),
           ),
           /*
           ListTile(

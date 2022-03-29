@@ -1,6 +1,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbib_style/style/font_style.dart';
 
@@ -9,6 +10,7 @@ import '../../shared/cubit/people_states/my_people_cubit.dart';
 import '../../shared/cubit/people_states/my_people_stares.dart';
 import '../../shared/init_page.dart';
 import '../../shared/modals/people_model.dart';
+import '../../shared/style/main_style.dart';
 
 class PeopleDetailsScreen extends StatefulWidget {
   final PeopleModel people;
@@ -84,8 +86,8 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: spacing20,
                                   ),
                                   Form(
                                     key: _keyForm,
@@ -101,8 +103,8 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
                                           return null;
                                         }),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: spacing20,
                                   ),
                                   defaultFormField(
                                       context: context,
@@ -119,8 +121,8 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
                                         }
                                         return null;
                                       }),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: spacing20,
                                   ),
                                   defaultFormField(
                                       context: context,
@@ -133,8 +135,8 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
                                         }
                                         return null;
                                       }),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: spacing20,
                                   ),
                                   state is MyPeopleLoadingButton
                                       ? const CircularProgressIndicator()
@@ -162,8 +164,8 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
                                             );
                                           },
                                         ),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: spacing20,
                                   )
                                 ],
                               ),
@@ -189,8 +191,8 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const SizedBox(
-                                  height: 20,
+                                SizedBox(
+                                  height: spacing20,
                                 ),
                                 RichText(
                                   text: TextSpan(children: [
@@ -203,8 +205,8 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
                                     ),
                                   ]),
                                 ),
-                                const SizedBox(
-                                  height: 10,
+                                SizedBox(
+                                  height: spacing15,
                                 ),
                                 RichText(
                                   text: TextSpan(children: [
@@ -217,8 +219,8 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
                                     ),
                                   ]),
                                 ),
-                                const SizedBox(
-                                  height: 10,
+                                SizedBox(
+                                  height: spacing15,
                                 ),
                                 RichText(
                                   text: TextSpan(children: [
@@ -230,8 +232,8 @@ class _PeopleDetailsScreenState extends State<PeopleDetailsScreen> {
                                         style: TBIBFontStyle.h4),
                                   ]),
                                 ),
-                                const SizedBox(
-                                  height: 20,
+                                SizedBox(
+                                  height: spacing20,
                                 ),
                               ],
                             ),

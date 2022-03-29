@@ -1,6 +1,7 @@
 import 'package:book_now_demo/shared/cubit/floor_states/my_floor_cubit.dart';
 import 'package:book_now_demo/shared/cubit/rooms_states/rooms_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
@@ -10,6 +11,7 @@ import '../../screens/floor_screen.dart';
 import '../../screens/rooms/room_screens.dart';
 import '../../shared/modals/floors_model.dart';
 import '../../shared/modals/houses_model.dart';
+import '../../shared/style/main_style.dart';
 
 Widget buildFloorsExpanded(
         {required BuildContext context,
@@ -36,14 +38,14 @@ Widget buildFloorsExpanded(
                 style: TBIBFontStyle.h3,
               ),
             ),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: spacing5,
             ),
-            const Divider(
-              thickness: 3,
+            Divider(
+              thickness: spacing3,
             ),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: spacing5,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -64,8 +66,8 @@ Widget buildFloorsExpanded(
                 ),
               ],
             ),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: spacing5,
             ),
             Container(
               child: floors.floor[0] > 0

@@ -1,8 +1,10 @@
 import 'package:book_now_demo/shared/cubit/houses_states/my_house_cubit.dart';
 import 'package:book_now_demo/shared/cubit/houses_states/my_houses_states.dart';
+import 'package:book_now_demo/shared/style/main_style.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tbib_style/tbib_style.dart';
 
 import '../../../components/form_field.dart';
@@ -33,14 +35,14 @@ Widget createHouseTab() {
               "Create Houses",
               style: TBIBFontStyle.h3,
             )),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: spacing5,
             ),
-            const Divider(
-              thickness: 3,
+            Divider(
+              thickness: spacing3,
             ),
-            const SizedBox(
-              height: 15,
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: spacing15),
             ),
             Center(
               child: Form(
@@ -58,8 +60,8 @@ Widget createHouseTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     defaultFormField(
                         context: context,
@@ -76,8 +78,8 @@ Widget createHouseTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     state is! MyHousesLoadingButton
                         ? ElevatedButton(
@@ -107,9 +109,9 @@ Widget createHouseTab() {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            )
+            SizedBox(
+              height: spacing20,
+            ),
           ],
         ),
       );

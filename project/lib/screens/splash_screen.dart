@@ -5,6 +5,7 @@ import 'package:book_now_demo/shared/cubit/rooms_states/rooms_cubit.dart';
 import 'package:book_now_demo/shared/cubit/travel_states/my_travel_cubit.dart';
 import 'package:book_now_demo/shared/init_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tbib_splash_screen/splash_screen_view.dart';
 import 'package:tbib_style/tbib_style.dart';
 
@@ -25,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
     MyProjectCubit cubitProject = MyProjectCubit.get(context);
 
     cubitProject.getData(false);
+
     MyHousesCubit cubitHouse = MyHousesCubit.get(context);
     MyFloorCubit cubitFloor = MyFloorCubit.get(context);
     cubitHouse
@@ -59,7 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
       navigateRoute: const ProjectScreen(),
       imageSrc: "assets/images/logo.png",
-      logoSize: 240,
+      logoSize: 240.h,
     );
   }
 }

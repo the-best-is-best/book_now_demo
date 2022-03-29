@@ -21,10 +21,10 @@ class MyProjectCubit extends Cubit<MyProjectsStates> {
     try {
       emit(MyProjectsLoadingData());
 
-      myProject = [];
-
-      Map<String, dynamic> data = {"haveData": haveData ? 1 : 0};
-
+      Map<String, dynamic> data = {
+        "haveData": haveData ? 1 : 0,
+        "count": myProject.length.toString()
+      };
       var response = await DioHelper.getData(
           url: 'get_data/get_projects.php', query: data);
 
@@ -93,10 +93,15 @@ class MyProjectCubit extends Cubit<MyProjectsStates> {
     createProjectTab(),
     selectProjectTab(),
   ];
-
-  void changeTabIndex(index) {
-    tabIndex = index;
+  double opacityTab = 1;
+  void changeTabIndex(index) async {
+    opacityTab = 0;
     emit(MyProjectsChangeTabs());
+    await Future.delayed(const Duration(milliseconds: 150)).then((value) {
+      tabIndex = index;
+      opacityTab = 1;
+      emit(MyProjectsChangeTabs());
+    });
   }
 
   int? houseSelected;

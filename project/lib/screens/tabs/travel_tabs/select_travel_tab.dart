@@ -1,12 +1,14 @@
 import 'package:book_now_demo/screens/travel/travel_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:tbib_style/style/font_style.dart';
 
 import '../../../shared/cubit/travel_states/my_travel_cubit.dart';
 import '../../../shared/cubit/travel_states/travel_states.dart';
+import '../../../shared/style/main_style.dart';
 
 Widget selectTravelTab() {
   return Column(
@@ -24,14 +26,14 @@ Widget selectTravelTab() {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Center(child: Text("Select Travel", style: TBIBFontStyle.h3)),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: spacing5,
               ),
               const Divider(
                 thickness: 3,
               ),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: spacing5,
               ),
               cubitTravel.myTravel.isNotEmpty
                   ? buildListView(
@@ -83,8 +85,8 @@ ListView buildListView({
       );
     },
     separatorBuilder: (BuildContext context, int index) {
-      return const Divider(
-        thickness: 2,
+      return Divider(
+        thickness: 2.h,
       );
     },
   );

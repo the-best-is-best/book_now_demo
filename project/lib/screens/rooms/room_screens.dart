@@ -59,7 +59,10 @@ class _RoomScreenState extends State<RoomScreen> {
                   elevation: 20,
                   child: Padding(
                     padding: const EdgeInsets.all(12.0),
-                    child: cubitRoom.tabsWidget[cubitRoom.tabIndex],
+                    child: AnimatedOpacity(
+                        opacity: cubitRoom.opacityTab,
+                        duration: const Duration(milliseconds: 125),
+                        child: cubitRoom.tabsWidget[cubitRoom.tabIndex]),
                   ),
                 ),
               ),

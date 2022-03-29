@@ -1,4 +1,5 @@
 import 'package:book_now_demo/components/form_field.dart';
+import 'package:book_now_demo/shared/style/main_style.dart';
 import 'package:flutter/material.dart';
 
 Widget buildSearchComponent({
@@ -30,8 +31,8 @@ Widget buildSearchComponent({
           ),
         ],
       ),
-      const SizedBox(
-        height: 20,
+      SizedBox(
+        height: spacing20,
       ),
     ],
   );

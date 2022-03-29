@@ -7,6 +7,7 @@ import 'package:tbib_style/style/font_style.dart';
 import '../../../shared/cubit/rooms_states/rooms_cubit.dart';
 import '../../../shared/cubit/rooms_states/rooms_states.dart';
 import '../../../shared/modals/rooms_model.dart';
+import '../../../shared/style/main_style.dart';
 import '../../rooms/room_details_screen.dart';
 
 Widget selectRoomTab() {
@@ -37,11 +38,11 @@ Widget selectRoomTab() {
                 "Select Room",
                 style: TBIBFontStyle.h3,
               )),
-              const SizedBox(
-                height: 5,
+              SizedBox(
+                height: spacing5,
               ),
-              const Divider(
-                thickness: 3,
+              Divider(
+                thickness: spacing3,
               ),
               Center(
                 child: Padding(

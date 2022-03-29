@@ -70,7 +70,10 @@ class _TravelScreenState extends State<TravelScreen> {
                     elevation: 20,
                     child: Padding(
                       padding: const EdgeInsets.all(12.0),
-                      child: cubitTravel.tabsWidget[cubitTravel.tabIndex],
+                      child: AnimatedOpacity(
+                          opacity: cubitTravel.opacityTab,
+                          duration: const Duration(milliseconds: 125),
+                          child: cubitTravel.tabsWidget[cubitTravel.tabIndex]),
                     ),
                   ),
                 ),

@@ -164,8 +164,14 @@ class MyHousesCubit extends Cubit<MyHousesStates> {
     emit(MyHousesGetData());
   }
 
-  void changeTabIndex(index) {
-    tabIndex = index;
+  double opacityTab = 1;
+  void changeTabIndex(index) async {
+    opacityTab = 0;
     emit(MyHousesChangeTabs());
+    await Future.delayed(const Duration(milliseconds: 150)).then((value) {
+      tabIndex = index;
+      opacityTab = 1;
+      emit(MyHousesChangeTabs());
+    });
   }
 }

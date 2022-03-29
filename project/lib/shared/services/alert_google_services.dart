@@ -13,6 +13,7 @@ class GoogleServesesChecker {
     } on PlatformException {
       getPlaSytoreAvailability = GooglePlayServicesAvailability.unknown;
     }
+    getPlaSytoreAvailability = GooglePlayServicesAvailability.success;
   }
 
   static void alertGoogleServices() async {

@@ -1,3 +1,4 @@
+import 'package:book_now_demo/shared/style/main_style.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,14 +32,14 @@ Widget createTravelTab() {
               "Create Travel",
               style: TBIBFontStyle.h3,
             )),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: spacing5,
             ),
-            const Divider(
-              thickness: 3,
+            Divider(
+              thickness: spacing3,
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: spacing15,
             ),
             Center(
               child: Form(
@@ -56,8 +57,8 @@ Widget createTravelTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     state is MyTravelsLoadingButton
                         ? const CircularProgressIndicator()
@@ -84,8 +85,8 @@ Widget createTravelTab() {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: spacing20,
             )
           ],
         ),

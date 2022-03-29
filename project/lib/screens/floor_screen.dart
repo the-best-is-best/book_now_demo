@@ -1,7 +1,9 @@
 import 'package:book_now_demo/shared/cubit/houses_states/my_house_cubit.dart';
+import 'package:book_now_demo/shared/style/main_style.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tbib_style/tbib_style.dart';
 
 import '../components/form_field.dart';
@@ -58,14 +60,14 @@ class _FloorRoomState extends State<FloorRoom> {
                       "Add Floor",
                       style: TBIBFontStyle.h2,
                     )),
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: spacing5,
                     ),
-                    const Divider(
-                      thickness: 3,
+                    Divider(
+                      thickness: spacing3,
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     Center(
                       child: Form(
@@ -87,8 +89,8 @@ class _FloorRoomState extends State<FloorRoom> {
                                   }
                                   return null;
                                 }),
-                            const SizedBox(
-                              height: 15,
+                            SizedBox(
+                              height: spacing15,
                             ),
                             state is MyHousesLoadingButton
                                 ? const CircularProgressIndicator()

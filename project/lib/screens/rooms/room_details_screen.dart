@@ -3,6 +3,7 @@ import 'package:book_now_demo/shared/cubit/rooms_states/rooms_cubit.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tbib_style/style/font_style.dart';
 
@@ -10,6 +11,7 @@ import '../../components/form_field.dart';
 import '../../shared/cubit/rooms_states/rooms_states.dart';
 import '../../shared/init_page.dart';
 import '../../shared/modals/rooms_model.dart';
+import '../../shared/style/main_style.dart';
 
 class RoomDetailsScreen extends StatefulWidget {
   final RoomsModel room;
@@ -79,8 +81,8 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: spacing20,
                         ),
                         cubitRoom.editRoomActive
                             ? Column(
@@ -105,8 +107,8 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                                               }
                                               return null;
                                             }),
-                                        const SizedBox(
-                                          height: 20,
+                                        SizedBox(
+                                          height: spacing20,
                                         ),
                                         defaultFormField(
                                             context: context,
@@ -136,8 +138,8 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                                       ],
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: spacing20,
                                   ),
                                   state is MyRoomsLoadingButton
                                       ? const CircularProgressIndicator()
@@ -174,26 +176,26 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                                     "Number of bed : ${widget.room.numbersOfBed}",
                                     style: TBIBFontStyle.h4,
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: spacing20,
                                   ),
                                   Text(
                                     "Number of Bunk Bed : ${widget.room.bunkBed}",
                                     style: TBIBFontStyle.h4,
                                   ),
-                                  const SizedBox(
-                                    height: 5,
+                                  SizedBox(
+                                    height: spacing5,
                                   ),
                                   const Divider(),
-                                  const SizedBox(
-                                    height: 5,
+                                  SizedBox(
+                                    height: spacing5,
                                   ),
                                   Text(
                                     "Singe bed : ${widget.room.numbersOfBed - (widget.room.bunkBed * 2)}",
                                     style: TBIBFontStyle.h4,
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: spacing20,
                                   ),
                                   Text(
                                     "Bunk bed : ${(widget.room.bunkBed)} - (*2) ",
@@ -201,8 +203,8 @@ class _RoomDetailsScreenState extends State<RoomDetailsScreen> {
                                   ),
                                 ],
                               ),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: spacing20,
                         )
                       ],
                     ),

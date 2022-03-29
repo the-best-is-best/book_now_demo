@@ -3,6 +3,7 @@ import 'package:book_now_demo/shared/cubit/houses_states/my_houses_states.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tbib_style/style/font_style.dart';
 
 import '../../../components/date_time_picker.dart';
@@ -10,6 +11,7 @@ import '../../../components/form_field.dart';
 import '../../../shared/cubit/projects_states/my_project_cubit.dart';
 import '../../../shared/cubit/projects_states/my_projects_states.dart';
 import '../../../shared/modals/project_model.dart';
+import '../../../shared/style/main_style.dart';
 
 Widget createProjectTab() {
   GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
@@ -38,14 +40,14 @@ Widget createProjectTab() {
               "Create Project",
               style: TBIBFontStyle.h3,
             )),
-            const SizedBox(
-              height: 5,
+            SizedBox(
+              height: spacing5,
             ),
-            const Divider(
-              thickness: 3,
+            Divider(
+              thickness: spacing3,
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(
+              height: spacing15,
             ),
             Center(
               child: Form(
@@ -83,8 +85,8 @@ Widget createProjectTab() {
                                 return null;
                               }),
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     Builder(builder: (context) {
                       final MyHousesCubit cubitHouse =
@@ -105,7 +107,11 @@ Widget createProjectTab() {
                               vertical: 4, horizontal: 25),
                           width: MediaQuery.of(context).size.width,
                           child: DropdownButtonFormField<int?>(
-                            icon: null,
+                            iconSize: 45.h,
+                            icon: const Icon(Icons.arrow_drop_down),
+                            isExpanded: true,
+                            elevation: 16,
+                            style: TBIBFontStyle.h4,
                             hint: Text(
                               'Select House *',
                               style: TBIBFontStyle.h4,
@@ -133,8 +139,8 @@ Widget createProjectTab() {
                         ),
                       );
                     }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     defaultFormField(
                         context: context,
@@ -151,8 +157,8 @@ Widget createProjectTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     defaultDateTimePicker(
                         context: context,
@@ -166,8 +172,8 @@ Widget createProjectTab() {
                           }
                           return null;
                         }),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: spacing15,
                     ),
                     state is MyHousesGetData
                         ? const CircularProgressIndicator()

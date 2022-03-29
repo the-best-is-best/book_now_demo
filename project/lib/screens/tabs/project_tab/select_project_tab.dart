@@ -4,6 +4,7 @@ import 'package:tbib_style/style/font_style.dart';
 
 import '../../../shared/cubit/projects_states/my_project_cubit.dart';
 import '../../../shared/cubit/projects_states/my_projects_states.dart';
+import '../../../shared/style/main_style.dart';
 
 Widget selectProjectTab() {
   return Builder(builder: (context) {
@@ -35,11 +36,11 @@ Widget selectProjectTab() {
             "Select Project",
             style: TBIBFontStyle.h3,
           )),
-          const SizedBox(
-            height: 5,
+          SizedBox(
+            height: spacing5,
           ),
-          const Divider(
-            thickness: 3,
+          Divider(
+            thickness: spacing3,
           ),
           Center(
             child: Container(

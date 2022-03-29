@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tbib_dialog/tbib_dialog.dart';
 import 'package:tbib_style/tbib_style.dart';
 
@@ -18,7 +19,7 @@ TBIBDialog alertDialog({
     dismissOnTouchOutside: false,
     body: Center(
       child: SizedBox(
-        height: 150,
+        height: 150.h,
         child: Column(
           children: [
             const Padding(padding: EdgeInsets.symmetric(vertical: 5)),

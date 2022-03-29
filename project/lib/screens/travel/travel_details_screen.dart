@@ -9,6 +9,7 @@ import '../../shared/cubit/travel_states/my_travel_cubit.dart';
 import '../../shared/cubit/travel_states/travel_states.dart';
 import '../../shared/init_page.dart';
 import '../../shared/modals/travel_model.dart';
+import '../../shared/style/main_style.dart';
 
 class TravelDetailsScreen extends StatefulWidget {
   final TravelModel travel;
@@ -72,8 +73,8 @@ class _TravelDetailsScreenState extends State<TravelDetailsScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: spacing20,
                         ),
                         cubitTravel.editTravelActive
                             ? Column(
@@ -93,8 +94,8 @@ class _TravelDetailsScreenState extends State<TravelDetailsScreen> {
                                           return null;
                                         }),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: spacing20,
                                   ),
                                   state is MyTravelsLoadingButton
                                       ? const CircularProgressIndicator()
@@ -125,8 +126,8 @@ class _TravelDetailsScreenState extends State<TravelDetailsScreen> {
                                 "Name : ${widget.travel.name}",
                                 style: TBIBFontStyle.h3,
                               ),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: spacing20,
                         )
                       ],
                     ),

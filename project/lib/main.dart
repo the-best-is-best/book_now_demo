@@ -78,7 +78,7 @@ Future<void> main() async {
         if (mapMessage['messages'].toString().isNotEmpty) {
           log(mapMessage['messages']);
           switch (mapMessage['messages']) {
-            case 'Prpject Created':
+            case 'Project Created':
               createProjectMessage();
               break;
             case 'House Created':
