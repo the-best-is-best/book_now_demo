@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:tbib_style/style/font_style.dart';
 
 import '../../screens/house_screen.dart';
 import '../../screens/people/people_screen.dart';
@@ -21,7 +19,7 @@ Widget buildMenu(int curPage, BuildContext context,
       selectedTileColor: Colors.black54,
       horizontalTitleGap: spacing20,
       contentPadding:
-          EdgeInsets.symmetric(vertical: spacing15, horizontal: spacing20),
+          EdgeInsets.symmetric(vertical: spacing5, horizontal: spacing15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

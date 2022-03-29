@@ -30,7 +30,7 @@ Widget createTravelTab() {
             Center(
                 child: Text(
               "Create Travel",
-              style: TBIBFontStyle.h3,
+              style: TBIBFontStyle.h2,
             )),
             SizedBox(
               height: spacing5,
@@ -65,7 +65,8 @@ Widget createTravelTab() {
                         : ElevatedButton(
                             child: Text(
                               "Create",
-                              style: TBIBFontStyle.h4,
+                              style: TBIBFontStyle.h4
+                                  .copyWith(color: Colors.white),
                             ),
                             onPressed: () async {
                               _keyForm.currentState!.save();

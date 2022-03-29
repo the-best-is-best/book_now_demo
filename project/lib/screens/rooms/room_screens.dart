@@ -46,7 +46,7 @@ class _RoomScreenState extends State<RoomScreen> {
                     },
                     child: Text(
                       "Refresh",
-                      style: TBIBFontStyle.b2Dark,
+                      style: TBIBFontStyle.b2.copyWith(color: Colors.white),
                     ))
               ]),
           body: Center(

@@ -33,7 +33,7 @@ Widget createPeopleTab() {
             Center(
                 child: Text(
               "Create People",
-              style: TBIBFontStyle.h3,
+              style: TBIBFontStyle.h2,
             )),
             SizedBox(
               height: spacing3,

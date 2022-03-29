@@ -12,4 +12,4 @@ final double spacing15 = 15.h;
 final double spacing20 = 20.h;
 
 final double tileFontSize = 20.sp;
-final double iconTileSize = 30.h;
+final double iconTileSize = 20.h;

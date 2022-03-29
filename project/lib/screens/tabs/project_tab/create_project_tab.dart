@@ -38,7 +38,7 @@ Widget createProjectTab() {
             Center(
                 child: Text(
               "Create Project",
-              style: TBIBFontStyle.h3,
+              style: TBIBFontStyle.h2,
             )),
             SizedBox(
               height: spacing5,
@@ -112,17 +112,32 @@ Widget createProjectTab() {
                             isExpanded: true,
                             elevation: 16,
                             style: TBIBFontStyle.h4,
+                            isDense: true,
                             hint: Text(
                               'Select House *',
                               style: TBIBFontStyle.h4,
                             ),
                             value: cubitProject.houseSelected,
-                            items: cubitHouse.myHouses
+                            selectedItemBuilder: (_) => cubitHouse.myHouses
                                 .map((house) => DropdownMenuItem(
                                       value: house.id,
                                       child: Text(
                                         house.name,
-                                        style: TBIBFontStyle.h4,
+                                        style: TBIBFontStyle.h4
+                                            .copyWith(color: Colors.black),
+                                      ),
+                                    ))
+                                .toList(),
+                            items: cubitHouse.myHouses
+                                .map((house) => DropdownMenuItem(
+                                      value: house.id,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(20.0),
+                                        child: Text(
+                                          house.name,
+                                          style: TBIBFontStyle.h4
+                                              .copyWith(color: Colors.black),
+                                        ),
                                       ),
                                     ))
                                 .toList(),

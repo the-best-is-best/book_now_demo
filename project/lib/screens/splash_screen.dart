@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:book_now_demo/screens/project_screen.dart';
 import 'package:book_now_demo/shared/cubit/people_states/my_people_cubit.dart';
 import 'package:book_now_demo/shared/cubit/projects_states/my_project_cubit.dart';
@@ -46,6 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
       isLoaded = true;
     });
     super.initState();
+    log(TBIBFontStyle.b1.fontFamily!);
     initPage(context);
   }
 

@@ -4,7 +4,9 @@ import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 AppBar buildAppBar(
     String title, AdvancedDrawerController _advancedDrawerController) {
   return AppBar(
-    title: Text(title),
+    title: Text(
+      title,
+    ),
     leading: IconButton(
       onPressed: () {
         _advancedDrawerController.showDrawer();

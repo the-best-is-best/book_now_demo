@@ -36,7 +36,7 @@ Widget selectRoomTab() {
               Center(
                   child: Text(
                 "Select Room",
-                style: TBIBFontStyle.h3,
+                style: TBIBFontStyle.h2,
               )),
               SizedBox(
                 height: spacing5,
